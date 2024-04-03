@@ -51,12 +51,12 @@ class ChangeTest {
 		assertEquals(Month.MARCH, change.getUpdate_date().getMonth());
 		assertEquals(2024, change.getUpdate_date().getYear());
 
-
 	}
 
 	@Test
 	void test_Change_Contestant_mapping() {
 		assertNotNull(change);
+		assertEquals("Parrisu#5321", change.getContestant().getName());
 	}
 
 

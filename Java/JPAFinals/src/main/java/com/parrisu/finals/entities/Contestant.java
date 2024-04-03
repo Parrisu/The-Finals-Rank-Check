@@ -1,5 +1,6 @@
 package com.parrisu.finals.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -7,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Contestant {
@@ -36,8 +38,21 @@ public class Contestant {
 	private String psnName;
 	
 	private int cashouts;
+	
+	@OneToMany(mappedBy="contestant")
+	private List<Change> manyChanges;
 
 	
+	public List<Change> getManyChanges() {
+		return manyChanges;
+	}
+
+
+	public void setManyChanges(List<Change> manyChanges) {
+		this.manyChanges = manyChanges;
+	}
+
+
 	public Contestant() {}
 	
 	

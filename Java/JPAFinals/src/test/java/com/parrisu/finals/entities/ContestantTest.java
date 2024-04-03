@@ -3,6 +3,7 @@ package com.parrisu.finals.entities;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -23,7 +24,7 @@ class ContestantTest {
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPAFinals");
 	}
-
+ 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		emf.close();
@@ -60,6 +61,7 @@ class ContestantTest {
 	@Test
 	void test_Contestant_Rank_Changes_mapping() {
 		assertNotNull(contestant);
+		assertTrue(contestant.getManyChanges().size() >= 1);
 	}
 
 

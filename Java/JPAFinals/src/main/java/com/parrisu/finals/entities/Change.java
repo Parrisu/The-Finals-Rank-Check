@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -28,6 +30,28 @@ public class Change {
 	@CreationTimestamp
 	private LocalDateTime dateChanged;
 	
+	@ManyToOne
+	@JoinColumn(name="contestant_id")
+	private Contestant contestant;
+	
+	
+	
+	public LocalDateTime getDateChanged() {
+		return dateChanged;
+	}
+
+	public void setDateChanged(LocalDateTime dateChanged) {
+		this.dateChanged = dateChanged;
+	}
+
+	public Contestant getContestant() {
+		return contestant;
+	}
+
+	public void setContestant(Contestant contestant) {
+		this.contestant = contestant;
+	}
+
 	public Change () {}
 
 	public int getId() {
@@ -81,7 +105,8 @@ public class Change {
 
 	@Override
 	public String toString() {
-		return "Change [id=" + id + ", rank=" + rank + ", change=" + change + ", update_date=" + dateChanged + "]";
+		return "Change [id=" + id + ", rank=" + rank + ", change=" + change + ", dateChanged=" + dateChanged
+				+ ", contestant=" + contestant + "]";
 	}
 	
 	
