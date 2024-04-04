@@ -1,0 +1,3 @@
+rootProject.name = 'FinalsRanked'
+
+includeFlat 'JPAFinals'
